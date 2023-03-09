@@ -28,7 +28,7 @@
   </head>
   <body>
     <!-- Landing Section -->
-    <section class="landing">
+    <section id="home" class="landing">
       <div class="container">
         <header>
           <div class="logo img-container">
@@ -37,10 +37,10 @@
           <nav>
             <div class="nav-icon"><span></span><span></span><span></span></div>
             <ul>
-              <li>features</li>
-              <li>Pricing</li>
-              <li>Contact</li>
-              <li><input type="button" value="Login" /></li>
+              <li><a href="#features">features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><input type="button" value="Login" class="red-btn" /></li>
             </ul>
           </nav>
         </header>
@@ -66,9 +66,9 @@
       </main>
     </section>
     <!-- Features Section -->
-    <section class="features">
+    <section id="features" class="features">
       <div class="container">
-        <div class="text">
+        <div class="text sm-container">
           <h2>Features</h2>
           <p>
             Our aim is to make it quick and easy for you to access your
@@ -138,9 +138,9 @@
       </div>
     </section>
     <!-- Extension Section -->
-    <section class="extension">
+    <section id="pricing" class="extension">
       <div class="container">
-        <div class="text">
+        <div class="text sm-container">
           <h2>Download the extension</h2>
           <p>
             We’ve got more browsers in the pipeline. Please do let us know if
@@ -181,56 +181,108 @@
         </div>
       </div>
     </section>
-
-    <div class="un-styled">
-      Frequently Asked Questions Here are some of our FAQs. If you have any
-      other questions you’d like answered please feel free to email us.
-
-      <!-- Question 1 -->
-      What is Bookmark?
-
-      <!-- Answer 1 -->
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt
-      justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare
-      mattis.
-
-      <!-- Question 2 -->
-      How can I request a new browser?
-
-      <!-- Answer 2 -->
-      Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa,
-      ultricies non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet
-      convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse
-      imperdie tVivamus luctus eros aliquet convallis ultricies. Mauris augue
-      massa, ultricies non ligula. Suspendisse imperdiet.
-
-      <!-- Question 3 -->
-      Is there a mobile app?
-
-      <!-- Answer 3 -->
-      Sed consectetur quam id neque fermentum accumsan. Praesent luctus
-      vestibulum dolor, ut condimentum urna vulputate eget. Cras in ligula quis
-      est pharetra mattis sit amet pharetra purus. Sed sollicitudin ex et
-      ultricies bibendum.
-
-      <!-- Question 4 -->
-      What about other Chromium browsers?
-
-      <!-- Answer 4 -->
-      Integer condimentum ipsum id imperdiet finibus. Vivamus in placerat mi, at
-      euismod dui. Aliquam vitae neque eget nisl gravida pellentesque non ut
-      velit. More Info 35,000+ already joined Stay up-to-date with what we’re
-      doing Contact Us Features Pricing Contact
-
-      <footer>
-        <p class="attribution">
-          Challenge by
-          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-            >Frontend Mentor</a
-          >. Coded by <a href="#">Your Name Here</a>.
+    <!-- Questions Section -->
+    <section class="questions">
+      <div class="container sm-container">
+        <h2>Frequently Asked Questions</h2>
+        <p>
+          Here are some of our FAQs. If you have any other questions you’d like
+          answered please feel free to email us.
         </p>
-      </footer>
-    </div>
+        <div class="questions-container">
+          <article>
+            <div class="headding">
+              <h4>What is Bookmark?</h4>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <p class="answer">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              tincidunt justo eget ultricies fringilla. Phasellus blandit ipsum
+              quis quam ornare mattis.
+            </p>
+          </article>
+          <article>
+            <div class="headding">
+              <h4>How can I request a new browser?</h4>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <p class="answer">
+              Vivamus luctus eros aliquet convallis ultricies. Mauris augue
+              massa, ultricies non ligula. Suspendisse imperdiet. Vivamus luctus
+              eros aliquet convallis ultricies. Mauris augue massa, ultricies
+              non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet
+              convallis ultricies. Mauris augue massa, ultricies non ligula.
+              Suspendisse imperdiet.
+            </p>
+          </article>
+          <article>
+            <div class="headding">
+              <h4>Is there a mobile app?</h4>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <p class="answer">
+              Sed consectetur quam id neque fermentum accumsan. Praesent luctus
+              vestibulum dolor, ut condimentum urna vulputate eget. Cras in
+              ligula quis est pharetra mattis sit amet pharetra purus. Sed
+              sollicitudin ex et ultricies bibendum.
+            </p>
+          </article>
+          <article>
+            <div class="headding">
+              <h4>What about other Chromium browsers?</h4>
+              <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+            <p class="answer">
+              Integer condimentum ipsum id imperdiet finibus. Vivamus in
+              placerat mi, at euismod dui. Aliquam vitae neque eget nisl gravida
+              pellentesque non ut velit.
+            </p>
+          </article>
+        </div>
+        <input type="button" value="More Info" />
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container sm-container">
+        <h4>35,000+ already joined</h4>
+        <h2>Stay up-to-date with what we’re doing</h2>
+        <div class="form">
+          <input
+            type="email"
+            name="contact-us"
+            placeholder="Enter your email adress"
+          />
+          <input type="button" value="Contact Us" class="red-btn" />
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="left-side">
+            <a href="#home" class="img-container">
+              <img src="images/logo-bookmark.svg" alt="BOOKMARK" />
+            </a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="right-side">
+            <img src="images/icon-facebook.svg" alt="facebook" />
+            <img src="images/icon-twitter.svg" alt="twitter" />
+          </div>
+        </div>
+      </div>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/Mohammed-Beltagy">Mohammed Beltagy</a>.
+      </p>
+    </footer>
 
     <!-- Font Awsome -->
     <script

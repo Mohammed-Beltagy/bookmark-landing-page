@@ -23,3 +23,12 @@ sliderTitles.forEach((title, index) => {
     sliderTaps[index].classList.add("active");
   });
 });
+
+// Open / Close Answers Of Questions Section
+Array.from(
+  document.querySelectorAll(".questions-container article .headding")
+).forEach((q) => {
+  q.onclick = () => {
+    q.parentElement.classList.toggle("active");
+  };
+});

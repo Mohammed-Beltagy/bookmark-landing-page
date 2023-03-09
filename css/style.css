@@ -1,14 +1,13 @@
 /*  ============
     Global Style
     ============  */
-
-.un-styled {
-  display: none;
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   /* colors */
@@ -25,8 +24,12 @@ body {
   margin: 0 auto;
   width: min(100%, 1100px);
 }
+.sm-container {
+  max-width: 35rem;
+  margin-inline: auto;
+}
 .img-container img {
-  width: 100%;
+  max-width: 100%;
 }
 h1,
 h2 {
@@ -49,15 +52,22 @@ p {
 ul {
   list-style: none;
 }
-input[type="button"] {
-  padding: 0.7em 0.9em;
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+input[type="button"],
+input[type="email"] {
+  padding: 0.9em 1.3em;
   border-radius: 5px;
+  border: 0.2em solid var(--soft-blue);
   font-size: 0.9em;
   font-weight: 500;
+}
+input[type="button"] {
   color: #fff;
-  background-color: var(--soft-blue);
-  border: 0.2em solid var(--soft-blue);
   cursor: pointer;
+  background-color: var(--soft-blue);
   box-shadow: 0px 1em 0.6em -0.5em #d4ddff4d;
   transition: background-color 0.3s, border-color 0.3s;
 }
@@ -65,6 +75,18 @@ input[type="button"]:hover {
   background-color: #fff;
   color: var(--soft-blue);
   box-sizing: border-box;
+}
+input[type="button"].red-btn {
+  margin: 0;
+  text-transform: inherit;
+  padding-right: 2em;
+  padding-left: 2em;
+  background-color: var(--soft-red);
+  border-color: var(--soft-red);
+}
+input[type="button"].red-btn:hover {
+  color: var(--soft-red);
+  background-color: #fff;
 }
 /* Every Container Have Image & headding & text */
 .img-text-container .img-container {
@@ -161,18 +183,6 @@ nav:hover ul {
   nav ul li:hover {
     color: var(--soft-red);
     cursor: pointer;
-  }
-  nav ul input[type="button"] {
-    margin: 0;
-    text-transform: inherit;
-    padding-right: 2em;
-    padding-left: 2em;
-    background-color: var(--soft-red);
-    border-color: var(--soft-red);
-  }
-  nav ul input[type="button"]:hover {
-    color: var(--soft-red);
-    background-color: #fff;
   }
 }
 /* Main */
@@ -342,6 +352,168 @@ h1 {
   margin: 1.5em auto;
 }
 
+/*  =========
+    Questions
+    =========  */
+.questions-container {
+  margin: 4em auto 2em;
+}
+.questions-container article {
+  padding: 1.5em 0;
+  border-bottom: 1px solid var(--grayish-blue);
+  cursor: pointer;
+}
+.questions-container article .headding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4em;
+}
+.questions-container article .headding h4 {
+  color: var(--very-dark-blue);
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.questions-container article .headding:hover h4 {
+  color: var(--soft-red);
+}
+.questions-container article .headding .arrow {
+  color: var(--soft-blue);
+  font-size: 1.5em;
+  transition: transform 0.5s, color 0.3s;
+}
+.questions-container article.active .headding .arrow {
+  color: var(--soft-red);
+  transform: rotate(180deg);
+}
+.questions-container article .answer {
+  margin-top: 0;
+  overflow: hidden;
+  max-height: 0;
+  line-height: 1.7;
+  text-align: start;
+  transition: max-height 0.6s linear, margin-top calc(2 / 15 * 0.6s) linear 0.6s;
+}
+.questions-container article.active .answer {
+  margin-top: 2em;
+  max-height: 15em;
+  transition: max-height 0.6s linear calc(2 / 15 * 0.6s),
+    margin-top calc(2 / 15 * 0.6s) linear;
+}
+.questions input[type="button"] {
+  margin-inline: auto;
+  display: block;
+}
+
+/*  =======
+    Contact
+    =======  */
+.contact {
+  background-color: var(--soft-blue);
+}
+.contact h4 {
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.contact h2 {
+  margin: 0.5em 0 1em;
+  color: #fff;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+.contact h2::first-letter {
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .contact .form {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+  }
+}
+.contact .form input {
+  width: 100%;
+  box-shadow: none;
+}
+.contact .form input[type="email"] {
+  border: none;
+  margin-bottom: 1em;
+}
+@media (min-width: 768px) {
+  .contact .form input[type="email"] {
+    margin-bottom: 0;
+  }
+  .contact .form input[type="button"] {
+    width: fit-content;
+  }
+}
+
+/*  ======
+    Footer
+    ======  */
+footer {
+  background-color: var(--very-dark-blue);
+  overflow-y: hidden;
+}
+footer .container {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+@media (min-width: 768px) {
+  footer .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+@media (min-width: 768px) {
+  footer .row .left-side {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+  }
+}
+footer .row a {
+  display: block;
+  width: fit-content;
+  margin: 1.5em auto;
+  color: #fff;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+footer .row .img-container {
+  position: relative;
+}
+footer .row .img-container::after {
+  content: "BOOKMARK";
+  position: absolute;
+  left: 3ch;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+footer .row .right-side {
+  display: flex;
+  justify-content: center;
+  gap: 2.5em;
+  padding: 1em;
+  font-size: 0.8em;
+}
+footer .attribution {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /*  ===========
     Attribution
     ===========  */
@@ -351,4 +523,7 @@ h1 {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+details:open {
+  border: solid 1px red;
 }
