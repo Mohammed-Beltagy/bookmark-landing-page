@@ -1,9 +1,16 @@
+// Open / Close Mobile Nav
+document.getElementById("open-nav").onclick = () =>
+  document.getElementById("mobile-nav").classList.add("active");
+
+document.getElementById("close-nav").onclick = () =>
+  document.getElementById("mobile-nav").classList.remove("active");
+
+// Move Slider Taps
 const sliderTitles = Array.from(
     document.getElementById("slider-titles").children
   ),
   sliderTaps = Array.from(document.getElementById("slider").children);
 
-// Move Slider Taps
 sliderTitles.forEach((title, index) => {
   title.addEventListener("click", () => {
     // remove active titles
@@ -32,3 +39,25 @@ Array.from(
     q.parentElement.classList.toggle("active");
   };
 });
+
+// Check email validation
+const email = document.getElementById("email");
+function isValid() {
+  if (/\w+@\w+(\.\w+)+/.test(email.value)) {
+    email.parentElement.classList.remove("invalid");
+  } else {
+    email.parentElement.classList.add("invalid");
+  }
+}
+document.getElementById("submit").onclick = () => {
+  if (/\w+@\w+(\.\w+)+/.test(email.value)) {
+    email.parentElement.classList.remove("invalid");
+  } else {
+    email.parentElement.classList.add("invalid");
+  }
+};
+email.oninput = () => {
+  if (/\w+@\w+(\.\w+)+/.test(email.value)) {
+    email.parentElement.classList.remove("invalid");
+  }
+};

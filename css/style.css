@@ -1,3 +1,14 @@
+/*  File Sections:
+    ============== 
+    1. Global Style
+    2. Landing => Header , Main
+    3. Features
+    4. Extension
+    5. Questions
+    6. Contact
+    7. Footer
+    */
+
 /*  ============
     Global Style
     ============  */
@@ -136,39 +147,92 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-nav {
-  position: relative;
-}
-nav .nav-icon {
+/* mobile nav */
+.nav-icon {
   width: 20px;
   display: flex;
   flex-direction: column;
   gap: 3px;
   cursor: pointer;
 }
-@media (min-width: 768px) {
-  nav .nav-icon {
-    display: none;
-  }
-}
-nav .nav-icon span {
+.nav-icon span {
   display: block;
   width: 100%;
   height: 3px;
   background-color: var(--very-dark-blue);
 }
-nav ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
+#close-nav {
+  cursor: pointer;
 }
-nav:hover ul {
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(229, 31%, 21%, 0.95);
+  z-index: 10000;
+}
+.mobile-nav.active {
   display: block;
 }
+.mobile-nav .container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.mobile-nav .container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5em;
+  padding-bottom: 2em;
+}
+.mobile-nav .container ul li {
+  color: #fff;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1.2em 0;
+  border-top: 1px solid var(--grayish-blue);
+}
+.mobile-nav .container ul input[type="button"] {
+  width: 100%;
+  border: 0.1em solid #fff;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 0.8em 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.mobile-nav .container ul input[type="button"]:hover {
+  color: var(--very-dark-blue);
+  background-color: #fff;
+}
+.mobile-nav .container .footer {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
 @media (min-width: 768px) {
-  nav ul {
-    position: static;
+  .nav-icon {
+    display: none;
+  }
+  .mobile-nav {
+    display: none;
+  }
+}
+/* desktop nav */
+.desktop-nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktop-nav {
     display: flex !important;
     gap: 3em;
     align-items: center;
@@ -177,10 +241,10 @@ nav:hover ul {
     font-size: 0.8em;
     color: var(--very-dark-blue);
   }
-  nav ul li {
+  .desktop-nav li {
     margin: 0;
   }
-  nav ul li:hover {
+  .desktop-nav li:hover {
     color: var(--soft-red);
     cursor: pointer;
   }
@@ -219,6 +283,7 @@ h1 {
   position: relative;
   border-bottom: 1px solid var(--grayish-blue);
   margin: 2rem 0 3rem;
+  z-index: 10;
 }
 @media (min-width: 768px) {
   .slider-titles {
@@ -277,12 +342,24 @@ h1 {
   }
 }
 /* Slider Style */
+.slider {
+  position: relative;
+}
 .tap {
-  display: none;
-  transition: 0.3s;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-30%);
+  z-index: 1;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 }
 .tap.active {
-  display: block;
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(0);
+}
+.tap:not(:last-child) {
+  position: absolute;
+  top: 0;
 }
 @media (min-width: 768px) {
   .tap.active {
@@ -440,9 +517,51 @@ h1 {
   width: 100%;
   box-shadow: none;
 }
+.contact .form .email-container {
+  position: relative;
+  background-color: var(--soft-red);
+  height: fit-content;
+  border-radius: 5px;
+  transition: padding 0.3s;
+}
+.contact .form .email-container.invalid {
+  padding: 0.2em;
+}
+.container .form .email-container::before {
+  content: url(../images/icon-error.svg);
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.container .form .email-container.invalid::before {
+  opacity: 1;
+}
+.container .form .email-container::after {
+  content: "Whoops, make sure it's an email";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  font-size: 0.7em;
+  background-color: var(--soft-red);
+  padding: 0.6em 1em 0.5em;
+  border-radius: 0 0 5px 5px;
+  transition: transform 0.3s;
+  z-index: 1;
+}
+.container .form .email-container.invalid::after {
+  transform: translateY(calc(100% - 0.5em));
+}
 .contact .form input[type="email"] {
+  position: relative;
   border: none;
   margin-bottom: 1em;
+  z-index: 2;
 }
 @media (min-width: 768px) {
   .contact .form input[type="email"] {

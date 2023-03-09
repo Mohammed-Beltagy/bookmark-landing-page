@@ -35,8 +35,28 @@
             <img src="images/logo-bookmark.svg" alt="BOOKMARK" />
           </div>
           <nav>
-            <div class="nav-icon"><span></span><span></span><span></span></div>
-            <ul>
+            <div id="open-nav" class="nav-icon">
+              <span></span><span></span><span></span>
+            </div>
+            <div id="mobile-nav" class="mobile-nav">
+              <div class="container">
+                <div class="header">
+                  <img src="images/logo-bookmark.svg" alt="BOOKMARK" />
+                  <img src="images/icon-close.svg" alt="Close" id="close-nav" />
+                </div>
+                <ul>
+                  <li><a href="#features">features</a></li>
+                  <li><a href="#pricing">Pricing</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                  <li><input type="button" value="Login" /></li>
+                </ul>
+                <div class="footer">
+                  <img src="images/icon-facebook.svg" alt="facebook" />
+                  <img src="images/icon-twitter.svg" alt="twitter" />
+                </div>
+              </div>
+            </div>
+            <ul class="desktop-nav">
               <li><a href="#features">features</a></li>
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#contact">Contact</a></li>
@@ -248,12 +268,15 @@
         <h4>35,000+ already joined</h4>
         <h2>Stay up-to-date with what we’re doing</h2>
         <div class="form">
-          <input
-            type="email"
-            name="contact-us"
-            placeholder="Enter your email adress"
-          />
-          <input type="button" value="Contact Us" class="red-btn" />
+          <div class="email-container">
+            <input
+              type="email"
+              name="contact-us"
+              placeholder="Enter your email adress"
+              id="email"
+            />
+          </div>
+          <input type="button" value="Contact Us" id="submit" class="red-btn" />
         </div>
       </div>
     </section>
